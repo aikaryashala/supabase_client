@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase DB Browser</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Connection Form -->
+  <header id="connection-bar">
+    <h1>Supabase DB Browser</h1>
+    <form id="connect-form">
+      <input type="url" id="supabase-url" placeholder="https://your-project.supabase.co" required>
+      <input type="text" id="supabase-key" placeholder="API Key (anon or service_role)" required>
+      <button type="submit" id="connect-btn">Connect</button>
+      <button type="button" id="disconnect-btn" hidden>Disconnect</button>
+    </form>
+    <p id="status-message"></p>
+  </header>
+
+  <!-- Main Layout: Sidebar + Data Area -->
+  <main id="app" hidden>
+    <aside id="sidebar">
+      <h2>Tables</h2>
+      <ul id="table-list"></ul>
+    </aside>
+
+    <section id="data-area">
+      <div id="table-header">
+        <h2 id="table-name">Select a table</h2>
+        <span id="row-count"></span>
+      </div>
+      <div id="table-container">
+        <table id="data-table">
+          <thead id="data-thead"></thead>
+          <tbody id="data-tbody"></tbody>
+        </table>
+      </div>
+      <button id="load-more-btn" hidden>Load more rows</button>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
